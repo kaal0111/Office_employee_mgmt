@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #17a2b8;
+    --accent-color: #ffc107;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--white);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.leave-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+}
+
+.leave-table th, .leave-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.leave-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.leave-table tr:hover {
+    background-color: rgba(23, 162, 184, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.leave-table tr:last-child td {
+    border-bottom: none;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select, button {
+    padding: 8px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+}
+
+select {
+    background-color: var(--white);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .leave-table {
+        font-size: 14px;
+    }
+
+    .leave-table th, .leave-table td {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .leave-table, .leave-table tbody, .leave-table tr, .leave-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .leave-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+    }
+
+    .leave-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .leave-table td:last-child {
+        border-bottom: none;
+    }
+
+    .leave-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .leave-table th {
+        display: none;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    select, button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

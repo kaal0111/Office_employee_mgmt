@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="static/css/add_emps.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+        <title>Add An Employee</title>
+    </head>
+    <body>
+        <div>
+            <div class="container">
+                <h1>Add An Employee</h1>
+                <form action="/add_emp" method="POST">
+                    {% csrf_token %}
+                   <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" value="{{first_name}}" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" value="{{last_name}}" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <input  type="text" d="department" value="{{dept}}" name="dept" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <input type="text" id="role"  name="role"  required value="{{role}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" value="{{email}}" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" value="{{phone}}" name="phone" maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hire_date">Hire Date:</label>
+                        <input type="date" id="hire_date" value="{{hire_date}}" name="hire_date" required>
+                    </div>
+                    <button type="submit">Submit</button>
+        </div>
+        
+        <h1>{{ message }}</h1>
+        <button onclick="window.location.href='{% url 'add_emp' %}'">Add Another Employee</button>
+    </body>
+</html>

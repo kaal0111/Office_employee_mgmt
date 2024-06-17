@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="static/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+    </head>
+    <body>
+        {% comment %} <h1 id="msg">Welcome to Bagpack <br>please Register first...</h1> {% endcomment %}
+        <h1 id="msg">Add Employee Detail...</h1>
+    <div class="container">
+            <form>
+            
+            <div class="input_box">
+                {% comment %} <h1>Employee Detai</h1> {% endcomment %}
+                <input type="text" placeholder="First Name *" required="">
+                <input type="text" placeholder="Last Name *" required="">
+                <input type="email" placeholder="example@gmail.com *" required="@gmail.com">
+                <input type="get_digit" placeholder="Mobile No. *" required="">
+                <input type="password" id="passwd" placeholder="new password*" required="" minlength="6">
+                <input type="password" id="cnfpasswd" placeholder="confirm password *" required="" minlength="6">
+                
+            </div>
+            <div class="gender">
+                {% comment %} <input id="radioButton1" type="radio"  name="gender">&nbsp&nbspMale &nbsp &nbsp
+                <input id="radioButton1" type="radio"  name="gender">&nbsp&nbspFemale {% endcomment %}
+            </div>
+            <div class="btn">
+                <button type="submit">Add Employee</button>
+                <p>Alrady have an account. <a href="Signin.html">Signin</a></p>
+            </div>
+
+        </form>
+            
+        </div>
+    </div>
+
+
+    <script>
+        var password = document.getElementById("passwd"),
+        confirm_password = document.getElementById("cnfpasswd");
+
+        function validatePasswd(){
+            if(password.value != confirm_password.value){
+                confirm_password.setCustomValidity("Password Don't Match");
+                
+            }
+            else{
+                confirm_password.setCustomValidity('');
+            }
+        }
+        password.onchange = validatePasswd;
+        confirm_password.onkeyup = validatePasswd;
+
+        let radBtnDefault = document.getElementById("radioButton1");
+        radBtnDefault.checked = false;
+    </script>
+</body>
+</html>

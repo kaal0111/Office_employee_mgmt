@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #f1f3f4;
+    --text-color: #202124;
+    --light-text: #5f6368;
+    --border-color: #dadce0;
+    --white: #ffffff;
+    --hover-color: #e8f0fe;
+    --shadow-color: rgba(60, 64, 67, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.head {
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--text-color);
+    text-align: left;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.main {
+    overflow-x: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1765cc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+thead {
+    background-color: var(--secondary-color);
+}
+
+th {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+tbody tr:hover {
+    background-color: var(--hover-color);
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.pagination li {
+    margin: 0 4px;
+}
+
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.pagination a:hover {
+    background-color: var(--hover-color);
+}
+
+.pagination .active a {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.pagination .disabled a {
+    color: var(--light-text);
+    pointer-events: none;
+    cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

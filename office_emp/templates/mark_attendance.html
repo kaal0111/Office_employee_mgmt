@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mark Attendance</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="container">
+            <div class=head>
+                <h1>Employee List</h1>
+            </div>
+            <div class="main">
+            <a href="/view_All"><button class="btn"> Back to Home</button></a>
+            
+            <br><br>
+            <table>
+                <thead class="t-head">
+                    <tr>
+                        <th>Emp_ID</th>
+                        <th>Emp_Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {% for attend in attends %}
+                <tbody>
+                    {% for attend in attends %}
+                    <tr>
+                        <td>{{  }}</td>
+                        <td>{{  }}</td>
+                        <td>{{  }}</td>
+                        <td>{{  }}</td>
+                        <td>{{  }}</td>
+                        <td>
+                            <form method="POST" action="/mark_attendance">
+                                {% csrf_token %}
+                                <select name="status">
+                                    <option value="not marked" {% if mark_attendance.status == 'not marked' %}selected{% endif %}>Not Marked</option>
+                                    <option value="Present" {% if leave.status == 'Present' %}selected{% endif %}>Present</option>
+                                    <option value="Absent" {% if leave.status == 'Absent' %}selected{% endif %}>Absent</option>
+                                    <option value="Half Day" {% if leave.status == 'Half Day' %}selected{% endif %}>Half Day</option>
+                                    <option value="Leave" {% if leave.status == 'Leave' %}selected{% endif %}>Leave</option>
+                                </select>
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No leave applications found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                {% endfor %}
+        
+            </table>
+    </body>
+</html>

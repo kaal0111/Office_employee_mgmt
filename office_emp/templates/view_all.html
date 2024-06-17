@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="static/css/view_all.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View Employee list</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class=head>
+                <h1>Employee List</h1>
+            </div>
+            <div class="main">
+            <a href="/add_emp"><button class="btn"> Add Employee</button></a>
+            <a href="/mark_attendance"><button class="btn"> Mark Attendance</button></a>
+            <br><br>
+            <table>
+                <thead class="t-head">
+                    <tr>
+                        <th>Emp_ID</th>
+                        <th>Emp_Name</th>
+                        <th>Department</th>
+                        <th>Role</th>
+                        <th>Phone No.</th>
+                        <th>Email</th>
+                        <th>Hire Date</th>
+                    </tr>
+                </thead>
+                {% for emp in emps %}
+                    <tbody>
+                        <tr>
+                            <td>{{emp.id}}</td>
+                            <td>{{emp.first_name}} {{emp.last_name}}</td>
+                            <td>{{emp.dept}}</td>
+                            <td>{{emp.role}}</td>
+                            <td>{{emp.phone}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.hire_date}}</td>
+                        </tr>
+                    </tbody>
+                {% endfor %}

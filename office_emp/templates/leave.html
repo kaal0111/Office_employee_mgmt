@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Applications</title>
+    <link rel="stylesheet" href="static/css/leave.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Leave Applications</h1>
+        <table class="leave-table">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for leave in leaves %}
+                <tr>
+                    <td>{{ leave.emp }}</td>
+                    <td>{{ leave.start_date }}</td>
+                    <td>{{ leave.end_date }}</td>
+                    <td>{{ leave.reason }}</td>
+                    <td>{{ leave.status }}</td>
+                    <td>
+                        <form method="POST" action="/leave">
+                            {% csrf_token %}
+                            <select name="status">
+                                <option value="pending" {% if leave.status == 'pending' %}selected{% endif %}>Pending</option>
+                                <option value="approved" {% if leave.status == 'approved' %}selected{% endif %}>Approved</option>
+                                <option value="rejected" {% if leave.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                            </select>
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">No leave applications found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
